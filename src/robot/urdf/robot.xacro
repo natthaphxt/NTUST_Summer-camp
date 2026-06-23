@@ -1,0 +1,6 @@
+<gazebo>
+    <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(find NAME_moveit_config)/config/ros2_controllers.yaml</parameters>
+        <controller_manager_name>controller_manager</controller_manager_name>
+    </plugin>
+</gazebo>

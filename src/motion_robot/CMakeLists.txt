@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(robot)
+project(motion_robot)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -28,7 +28,6 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/dummy_script.py
-  scripts/robot_motion.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -46,12 +45,9 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# ############### INSTALL LAUNCH, ETC #################
+################ INSTALL LAUNCH, ETC #################
 install(DIRECTORY
-  config
-  launch
-  urdf
-  robot
+  # add directories here
   DESTINATION share/${PROJECT_NAME})
 
 ament_package()

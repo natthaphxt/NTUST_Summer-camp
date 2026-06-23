@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: robot
+    relative_path: urdf/description_test.urdf
+  srdf:
+    relative_path: config/rrr_robot_arm_with_gripper.srdf
+  package_settings:
+    author_name: ""
+    author_email: ""
+    generated_timestamp: 1782194793
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

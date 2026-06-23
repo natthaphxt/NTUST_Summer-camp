@@ -1,0 +1,24 @@
+moveit_simple_controller_manager:
+  ros__parameters:
+    controller_names:
+      - arm_controller
+      - gripper_controller
+
+arm_controller:
+  ros__parameters:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - base_to_rod1
+      - rod1_to_rod2
+      - rod2_to_rod3
+
+gripper_controller:
+  ros__parameters:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - rod3_to_left_finger
+      - rod3_to_right_finger

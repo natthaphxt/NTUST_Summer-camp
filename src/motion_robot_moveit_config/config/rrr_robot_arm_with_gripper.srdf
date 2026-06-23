@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="rrr_robot_arm_with_gripper">
+
+    <group name="arm">
+        <joint name="base_to_rod1"/>
+        <joint name="rod1_to_rod2"/>
+        <joint name="rod2_to_rod3"/>
+    </group>
+
+    <group name="gripper">
+        <joint name="rod3_to_left_finger"/>
+        <joint name="rod3_to_right_finger"/>
+    </group>
+
+    <end_effector name="end effector" parent_link="rod3-link" group="gripper"/>
+
+    <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+
+    <!-- ✅ Disable collisions ระหว่าง link ที่ติดกัน (adjacent) — ปกติไม่นับเป็น collision -->
+    <disable_collisions link1="base_link" link2="rod1_link" reason="Adjacent"/>
+    <disable_collisions link1="rod1_link" link2="rod2-link" reason="Adjacent"/>
+    <disable_collisions link1="rod2-link" link2="rod3-link" reason="Adjacent"/>
+    <disable_collisions link1="rod3-link" link2="left_finger" reason="Adjacent"/>
+    <disable_collisions link1="rod3-link" link2="right_finger" reason="Adjacent"/>
+
+    <!-- ✅ Disable collisions ระหว่าง link ที่อยู่ใกล้กันในโซ่ (Never collision ในการใช้งานปกติ) -->
+    <disable_collisions link1="base_link" link2="rod2-link" reason="Never"/>
+    <disable_collisions link1="rod1_link" link2="rod3-link" reason="Never"/>
+    <disable_collisions link1="rod2-link" link2="left_finger" reason="Never"/>
+    <disable_collisions link1="rod2-link" link2="right_finger" reason="Never"/>
+    <disable_collisions link1="left_finger" link2="right_finger" reason="Never"/>
+
+</robot>

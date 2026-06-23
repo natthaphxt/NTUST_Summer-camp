@@ -1,0 +1,8 @@
+# Default initial positions for rrr_robot_arm_with_gripper's ros2_control fake system
+
+initial_positions:
+  base_to_rod1: 0
+  rod1_to_rod2: 0
+  rod2_to_rod3: 0
+  rod3_to_left_finger: 0
+  rod3_to_right_finger: 0
